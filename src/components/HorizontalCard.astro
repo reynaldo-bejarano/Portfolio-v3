@@ -1,5 +1,5 @@
 ---
-const { title, img, desc, url, badge1, badge2, badge3, tags, target = '_blank' } = Astro.props;
+const { title, img, desc, url, badge1, badge2, badge3, tags,urlGithub="#", target = '_blank' } = Astro.props;
 ---
 
 <div class="rounded-lg bg-base-100 hover:shadow-xl transition ease-in-out hover:scale-[102%]">
@@ -7,15 +7,20 @@ const { title, img, desc, url, badge1, badge2, badge3, tags, target = '_blank' }
     <div class="hero-content flex-col md:flex-row">
       <img src={img} alt={title} class="max-w-full md:max-w-[13rem] rounded-lg" />
       <div class="grow w-full">
-        <h1 class="text-xl font-bold">
-          {title}
         
-        </h1>
-        <h1 class="text-xl font-bold">
-          {badge1 && <div class="badge badge-secondary  bg-blue-900">{badge1}</div>}
-          {badge2 && <div class="badge badge-secondary  bg-blue-900">{badge2}</div>}
-          {badge3 && <div class="badge badge-secondary  bg-blue-900">{badge3}</div>}
-        </h1>
+        <div class="flex items-center justify-between">
+          <h1 class="text-xl font-bold">
+            {title}
+          </h1>
+          <a href={urlGithub} target="_blank" class="text-xl font-bold ">
+            <div class="badge badge-secondary hover:bg-red-900 ">Github</div>
+          </a>
+        </div>
+          <h1 class="text-xl font-bold">
+            {badge1 && <div class="badge badge-secondary  bg-blue-900">{badge1}</div>}
+            {badge2 && <div class="badge badge-secondary  bg-blue-900">{badge2}</div>}
+            {badge3 && <div class="badge badge-secondary  bg-blue-900">{badge3}</div>}
+          </h1>
         <p class="py-2 text-1xl">{desc}</p>
         <div class="card-actions justify-end">
           {tags && tags.map((tag) => <div class="badge badge-outline">{tag}</div>)}
